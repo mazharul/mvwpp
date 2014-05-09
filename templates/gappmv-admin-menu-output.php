@@ -7,7 +7,7 @@
         $_pS = "wp-ga-popular-posts";
 
         //setting_fields('gappmv_setting_group');
-        do_settings_action($_pS);
+        do_settings_sections($_pS);
 
         submit_button();
 
