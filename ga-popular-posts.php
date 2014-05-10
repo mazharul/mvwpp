@@ -31,6 +31,8 @@ if (!class_exists(WPGAMVPopularPosts)) {
             register_activation_hook(__FILE__, array($this, 'gappmv_activate'));
             register_deactivation_hook(__FILE__, array($this, 'gappmv_deactivate'));
 
+            var_dump(get_option('gappmv-setting'));
+
 
         }
 
