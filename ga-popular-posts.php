@@ -82,7 +82,7 @@ if (!class_exists(WPGAMVPopularPosts)) {
          */
         public function gappmv_gmail_callback() {
 
-            $s = esc_attr( get_option('gappmv-setting'));
+            $s = array ( get_option('gappmv-setting'));
             echo "<input type='email' name='gappmv-setting[email]' value='$s[email]' required> ";
         }
 
@@ -93,7 +93,7 @@ if (!class_exists(WPGAMVPopularPosts)) {
          */
         public function gappmv_password_callback() {
 
-            $s = esc_attr( get_option('gappmv-setting'));
+            $s = array ( get_option('gappmv-setting'));
             echo "<input type='password' name='gappmv-setting[password]' value='$s[password]' required> ";
         }
 
