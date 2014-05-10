@@ -61,7 +61,10 @@ if (!class_exists(WPGAMVPopularPosts)) {
             register_setting('gappmv_setting_group', 'gappmv-setting');
             
             add_settings_section('gappmv-first-section', 'Section One', array($this, 'gappmv_first_section_callback'), $this->_pageSlug);
+
             add_settings_field('gappmv-gmail', 'Your Analytics email', array($this, 'gappmv_gmail_callback'), $this->_pageSlug, 'gappmv-first-section');
+
+            add_settings_field('gappmv-password', 'Provide us your password please', array($this, 'gappmv_password_callback'), $this->_pageSlug, 'gappmv-first-section');
         }
 
         /**
@@ -70,7 +73,7 @@ if (!class_exists(WPGAMVPopularPosts)) {
          */
         
         public function gappmv_first_section_callback() {
-            echo "We need you to give you email that you sed while setting up the analytics for this blog";
+            echo "We need you to give your email that you used while setting up the analytics for this blog";
         }
 
         /**
@@ -80,7 +83,18 @@ if (!class_exists(WPGAMVPopularPosts)) {
         public function gappmv_gmail_callback() {
 
             $s = esc_attr( get_option('gappmv-setting'));
-            echo "<input type='email' name='gappmv-setting' value='$s'> ";
+            echo "<input type='email' name='gappmv-setting[email]' value='$s[email]' required> ";
+        }
+
+
+        /**
+         * Callback for the second (password) field of the options
+         * @return [type] [description]
+         */
+        public function gappmv_password_callback() {
+
+            $s = esc_attr( get_option('gappmv-setting'));
+            echo "<input type='password' name='gappmv-setting[password]' value='$s[password]' required> ";
         }
 
         
